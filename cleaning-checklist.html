@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regular Cleaning Checklist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px 20px;
+        }
+
+        .checklist-section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            margin-bottom: 8px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .checklist-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .checklist-item label {
+            cursor: pointer;
+            font-size: 14px;
+            color: #333;
+            flex: 1;
+            user-select: none;
+        }
+
+        .checklist-item input[type="checkbox"]:checked + label {
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧹 Regular Cleaning Checklist</h1>
+            <p>May 2022</p>
+        </div>
+
+        <div class="content">
+            <!-- Progress Bar -->
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text">
+                <span id="completedCount">0</span> of <span id="totalCount">0</span> completed
+            </div>
+
+            <!-- Checklist Form -->
+            <form id="checklistForm">
+                <!-- Kitchen Section -->
+                <div class="checklist-section">
+                    <div class="section-title">🍳 Kitchen</div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="kitchen1" class="checkbox-item">
+                        <label for="kitchen1">Wipe down countertops</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="kitchen2" class="checkbox-item">
+                        <label for="kitchen2">Clean sink and faucet</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="kitchen3" class="checkbox-item">
+                        <label for="kitchen3">Wipe appliances</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="kitchen4" class="checkbox-item">
+                        <label for="kitchen4">Sweep floor</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="kitchen5" class="checkbox-item">
+                        <label for="kitchen5">Mop floor</label>
+                    </div>
+                </div>
+
+                <!-- Bathroom Section -->
+                <div class="checklist-section">
+                    <div class="section-title">🚿 Bathroom</div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="bathroom1" class="checkbox-item">
+                        <label for="bathroom1">Clean toilet</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="bathroom2" class="checkbox-item">
+                        <label for="bathroom2">Scrub shower/tub</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="bathroom3" class="checkbox-item">
+                        <label for="bathroom3">Clean sink and mirror</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="bathroom4" class="checkbox-item">
+                        <label for="bathroom4">Wipe down counters</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="bathroom5" class="checkbox-item">
+                        <label for="bathroom5">Mop floor</label>
+                    </div>
+                </div>
+
+                <!-- Living Areas Section -->
+                <div class="checklist-section">
+                    <div class="section-title">🛋️ Living Areas</div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="living1" class="checkbox-item">
+                        <label for="living1">Dust surfaces</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="living2" class="checkbox-item">
+                        <label for="living2">Vacuum carpets</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="living3" class="checkbox-item">
+                        <label for="living3">Sweep hard floors</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="living4" class="checkbox-item">
+                        <label for="living4">Wipe windows</label>
+                    </div>
+                </div>
+
+                <!-- Bedroom Section -->
+                <div class="checklist-section">
+                    <div class="section-title">🛏️ Bedroom</div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="bedroom1" class="checkbox-item">
+                        <label for="bedroom1">Change bed sheets</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="bedroom2" class="checkbox-item">
+                        <label for="bedroom2">Dust surfaces</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="bedroom3" class="checkbox-item">
+                        <label for="bedroom3">Vacuum floor</label>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="controls">
+                    <button type="button" class="btn-secondary" onclick="resetChecklist()">Reset</button>
+                    <button type="button" class="btn-primary" onclick="saveChecklist()">Save Progress</button>
+                </div>
+            </form>
+
+            <!-- Contact Info -->
+            <div class="contact-info">
+                📞 Need help? Call us at <a href="tel:0800786780">0800 786 780</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize checklist
+        function initChecklist() {
+            const checkboxes = document.querySelectorAll('.checkbox-item');
+            const totalCount = checkboxes.length;
+            document.getElementById('totalCount').textContent = totalCount;
+
+            // Load saved progress from localStorage
+            loadChecklist();
+
+            // Add event listeners to all checkboxes
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateProgress);
+            });
+
+            updateProgress();
+        }
+
+        // Update progress bar and count
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.checkbox-item');
+            const checkedBoxes = document.querySelectorAll('.checkbox-item:checked');
+            const totalCount = checkboxes.length;
+            const completedCount = checkedBoxes.length;
+
+            document.getElementById('completedCount').textContent = completedCount;
+            const percentage = (completedCount / totalCount) * 100;
+            document.getElementById('progressFill').style.width = percentage + '%';
+
+            // Optional: Add celebration when all items checked
+            if (completedCount === totalCount && totalCount > 0) {
+                showCelebration();
+            }
+        }
+
+        // Save checklist to localStorage
+        function saveChecklist() {
+            const checkboxes = document.querySelectorAll('.checkbox-item');
+            const checkedItems = [];
+
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    checkedItems.push(checkbox.id);
+                }
+            });
+
+            localStorage.setItem('checklistProgress', JSON.stringify(checkedItems));
+            alert('✅ Progress saved successfully!');
+        }
+
+        // Load checklist from localStorage
+        function loadChecklist() {
+            const saved = localStorage.getItem('checklistProgress');
+            if (saved) {
+                const checkedItems = JSON.parse(saved);
+                checkedItems.forEach(id => {
+                    const checkbox = document.getElementById(id);
+                    if (checkbox) {
+                        checkbox.checked = true;
+                    }
+                });
+            }
+        }
+
+        // Reset checklist
+        function resetChecklist() {
+            if (confirm('Are you sure you want to reset the checklist?')) {
+                document.getElementById('checklistForm').reset();
+                localStorage.removeItem('checklistProgress');
+                updateProgress();
+            }
+        }
+
+        // Show celebration effect
+        function showCelebration() {
+            const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj==');
+            audio.play().catch(e => console.log('Audio play failed:', e));
+            alert('🎉 Congratulations! You\'ve completed all tasks!');
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', initChecklist);
+    </script>
+</body>
+</html>
